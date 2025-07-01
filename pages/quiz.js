@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import { quizData } from "../quizData";
-import { QuizManager } from "../QuizManager";
+import quizData from "../src/quizData";
+import QuizManager from "../src/QuizManager";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
