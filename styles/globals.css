@@ -1,51 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import Game Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@700&display=swap');
-
 body {
-  font-family: 'Press Start 2P', 'Orbitron', 'Segoe UI', sans-serif;
-  background:
-    linear-gradient(120deg, #22223b 0%, #27293d 100%),
-    repeating-linear-gradient(45deg, #2a2d4a 0 2px, transparent 2px 40px);
+  font-family: 'Segoe UI', 'Arial', 'Press Start 2P', 'Orbitron', sans-serif;
+  background: #23272f; /* soft dark gray/black */
   min-height: 100vh;
-  color: #00FFB2;
-  /* Subtle animated glow */
-  box-shadow: 0 0 32px #00FFB280, 0 0 64px #FF00C880;
-  /* Optional: animated background */
-  animation: bgMove 10s linear infinite;
+  color: #50b6ff; /* readable blue */
 }
 
-@keyframes bgMove {
-  0% {
-    background-position: 0 0, 0 0;
-  }
-  100% {
-    background-position: 100px 100px, 50px 50px;
-  }
+h1, h2, h3, h4 {
+  color: #50b6ff; /* readable blue for headings */
+  font-family: 'Orbitron', 'Segoe UI', 'Arial', sans-serif;
+  letter-spacing: 0.02em;
 }
 
-/* Example: Neon Button */
-.btn-neon {
-  @apply font-arcade bg-primary text-dark px-8 py-4 rounded-md shadow-neon transition transform hover:scale-105;
-  border: 2px solid #FFD700;
-  text-shadow: 0 0 6px #FF00C8, 0 0 12px #00FFB2;
-  animation: pulseGlow 2s infinite alternate;
-}
-
-@keyframes pulseGlow {
-  0% {
-    box-shadow: 0 0 8px #00FFB2, 0 0 16px #00C8FF;
-  }
-  100% {
-    box-shadow: 0 0 24px #FF00C8, 0 0 32px #FFD700;
-  }
-}
-
-/* Optional: Panel/Card styling */
 .panel-game {
-  @apply bg-panel rounded-lg shadow-panel p-6;
-  border: 1px solid #00C8FF60;
+  @apply bg-panel text-readableBlue rounded-lg shadow-panel p-6;
 }
