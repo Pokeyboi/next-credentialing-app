@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import quizData from "/quizData";
-import QuizManager from "/QuizManager";
+import quizData from "../quizData";
+import QuizManager from "../QuizManager";
 
 export default function QuizPage() {
   const managerRef = useRef(new QuizManager(quizData));
@@ -22,8 +22,8 @@ export default function QuizPage() {
   // Handle finished quiz (no more options)
   if (!question.options || question.options.length === 0) {
     return (
-      <div style={{maxWidth:600,margin:"2rem auto",fontFamily:"sans-serif",padding:"1rem"}}>
-        <h2>Quiz Finished!</h2>
+      <div className="max-w-xl mx-auto mt-10 font-sans p-4 text-center">
+        <h2 className="text-3xl font-bold mb-6 text-primary">Quiz Finished!</h2>
         <button 
           onClick={() => {
             managerRef.current = new QuizManager(quizData);
@@ -31,16 +31,8 @@ export default function QuizPage() {
             setSelected(null);
             setShowAnswer(false);
           }}
-          style={{
-            marginTop:"1rem",
-            padding:"0.75rem 2rem",
-            fontSize:"1rem",
-            background:"#333",
-            color:"#fff",
-            border:"none",
-            borderRadius:8,
-            cursor:"pointer"
-          }}>
+          className="mt-4 px-8 py-3 text-lg bg-primary text-dark rounded-xl font-semibold shadow-neon hover:scale-105 transition-transform"
+        >
           Restart Quiz
         </button>
       </div>
@@ -48,29 +40,26 @@ export default function QuizPage() {
   }
 
   return (
-    <div style={{maxWidth:600,margin:"2rem auto",fontFamily:"sans-serif",padding:"1rem"}}>
-      <h2>Quiz</h2>
-      <div style={{marginBottom:"1.5rem"}}>
-        <strong>Question:</strong>
-        <div style={{fontSize:"1.2rem",margin:"1rem 0"}}>{question.question}</div>
-        <ul style={{listStyle:"none",padding:0}}>
+    <div className="max-w-xl mx-auto mt-10 font-sans p-4 bg-panel border-2 border-accent rounded-2xl shadow-panel">
+      <h2 className="text-2xl font-display font-bold mb-4 text-primary drop-shadow-[0_0_10px_#00FFB2]">Quiz</h2>
+      <div className="mb-6">
+        <div className="font-semibold mb-2 text-accent">Question:</div>
+        <div className="text-lg mb-4">{question.question}</div>
+        <ul className="flex flex-col gap-2">
           {question.options.map((opt, idx) => (
-            <li key={idx} style={{marginBottom:"0.5rem"}}>
+            <li key={idx}>
               <button
-                style={{
-                  width: "100%",
-                  textAlign: "left",
-                  padding: "0.75rem",
-                  background: selected === idx 
-                    ? (idx === question.answer ? "#a0e3a0" : "#f7bcbc") 
-                    : "#f6f6f6",
-                  border: "1px solid #ddd",
-                  borderRadius: 8,
-                  cursor: showAnswer ? "default" : "pointer",
-                  fontWeight: selected === idx ? "bold" : "normal"
-                }}
+                className={`w-full text-left px-4 py-3 rounded-lg border font-semibold transition-all
+                  ${selected === idx
+                    ? (idx === question.answer 
+                        ? "bg-primary/20 border-gold text-gold" 
+                        : "bg-secondary/20 border-secondary text-secondary")
+                    : "bg-panel border-accent text-primary hover:bg-accent/10"}
+                  ${showAnswer ? "cursor-default" : "cursor-pointer"}
+                `}
                 onClick={() => !showAnswer && handleSelect(idx)}
                 disabled={showAnswer}
+                aria-pressed={selected === idx}
               >
                 {opt}
               </button>
@@ -78,26 +67,18 @@ export default function QuizPage() {
           ))}
         </ul>
         {showAnswer && (
-          <div style={{margin:"1rem 0",fontSize:"1.1rem"}}>
+          <div className="my-4 text-lg font-bold">
             {selected === question.answer ? (
-              <span style={{color:"green"}}>Correct!</span>
+              <span className="text-gold">🎉 Correct!</span>
             ) : (
-              <span style={{color:"red"}}>Incorrect. The correct answer is: <b>{question.options[question.answer]}</b></span>
+              <span className="text-secondary">❌ Incorrect. The correct answer is: <b>{question.options[question.answer]}</b></span>
             )}
           </div>
         )}
         <button 
-          onClick={nextQuestion} 
-          style={{
-            marginTop:"1rem",
-            padding:"0.75rem 2rem",
-            fontSize:"1rem",
-            background:"#333",
-            color:"#fff",
-            border:"none",
-            borderRadius:8,
-            cursor:"pointer"
-          }}>
+          onClick={nextQuestion}
+          className="mt-2 px-6 py-2 bg-accent text-dark rounded-xl shadow font-semibold hover:scale-105 transition-transform"
+        >
           Next Question
         </button>
       </div>
