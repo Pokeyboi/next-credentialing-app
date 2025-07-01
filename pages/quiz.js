@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import { quizData } from "./quizData";
-import { QuizManager } from "./QuizManager";
+import quizData from "../quizData";
+import QuizManager from "../QuizManager";
 
 export default function QuizPage() {
   const managerRef = useRef(new QuizManager(quizData));
@@ -17,6 +17,34 @@ export default function QuizPage() {
     setSelected(null);
     setShowAnswer(false);
     setQuestion(managerRef.current.getNextQuestion());
+  }
+
+  // Handle finished quiz (no more options)
+  if (!question.options || question.options.length === 0) {
+    return (
+      <div style={{maxWidth:600,margin:"2rem auto",fontFamily:"sans-serif",padding:"1rem"}}>
+        <h2>Quiz Finished!</h2>
+        <button 
+          onClick={() => {
+            managerRef.current = new QuizManager(quizData);
+            setQuestion(managerRef.current.getNextQuestion());
+            setSelected(null);
+            setShowAnswer(false);
+          }}
+          style={{
+            marginTop:"1rem",
+            padding:"0.75rem 2rem",
+            fontSize:"1rem",
+            background:"#333",
+            color:"#fff",
+            border:"none",
+            borderRadius:8,
+            cursor:"pointer"
+          }}>
+          Restart Quiz
+        </button>
+      </div>
+    );
   }
 
   return (
