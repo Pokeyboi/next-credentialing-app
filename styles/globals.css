@@ -1,21 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Body styles for high contrast and accessibility */
+/* Import Game Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@700&display=swap');
+
 body {
-  font-family: 'Segoe UI', 'Arial', 'Press Start 2P', 'Orbitron', sans-serif;
+  font-family: 'Press Start 2P', 'Orbitron', 'Segoe UI', sans-serif;
   background:
-    linear-gradient(120deg, #18181a 0%, #232334 100%),
-    repeating-linear-gradient(45deg, #232334 0 2px, transparent 2px 40px);
+    linear-gradient(120deg, #22223b 0%, #27293d 100%),
+    repeating-linear-gradient(45deg, #2a2d4a 0 2px, transparent 2px 40px);
   min-height: 100vh;
-  color: #f8fafc;
+  color: #00FFB2;
+  /* Subtle animated glow */
+  box-shadow: 0 0 32px #00FFB280, 0 0 64px #FF00C880;
+  /* Optional: animated background */
   animation: bgMove 10s linear infinite;
 }
 
-/* Background movement animation */
 @keyframes bgMove {
   0% {
     background-position: 0 0, 0 0;
@@ -25,61 +27,25 @@ body {
   }
 }
 
-/* Neon Button Style - accessible contrast */
+/* Example: Neon Button */
 .btn-neon {
-  @apply font-arcade bg-primary text-dark px-8 py-4 rounded-md shadow-neon transition-transform hover:scale-105;
-  border: 2px solid #00ffd0;
-  text-shadow: 0 0 6px #00ffd0, 0 0 12px #003fff;
+  @apply font-arcade bg-primary text-dark px-8 py-4 rounded-md shadow-neon transition transform hover:scale-105;
+  border: 2px solid #FFD700;
+  text-shadow: 0 0 6px #FF00C8, 0 0 12px #00FFB2;
   animation: pulseGlow 2s infinite alternate;
 }
 
-/* Neon button focus for accessibility */
-.btn-neon:focus {
-  outline: 3px solid #00ffd0;
-  outline-offset: 2px;
-}
-
-/* Glow animation for neon effect */
 @keyframes pulseGlow {
   0% {
-    box-shadow: 0 0 8px #00ffd0, 0 0 16px #003fff;
+    box-shadow: 0 0 8px #00FFB2, 0 0 16px #00C8FF;
   }
   100% {
-    box-shadow: 0 0 24px #003fff, 0 0 32px #FFD700;
+    box-shadow: 0 0 24px #FF00C8, 0 0 32px #FFD700;
   }
 }
 
-/* Panel/Card styling */
+/* Optional: Panel/Card styling */
 .panel-game {
   @apply bg-panel rounded-lg shadow-panel p-6;
-  border: 2px solid #003fff;
-}
-
-/* Accessible correct/incorrect feedback */
-.feedback-correct {
-  color: #00ff90;
-  font-weight: bold;
-}
-.feedback-incorrect {
-  color: #ff2060;
-  font-weight: bold;
-}
-
-/* Utility for visually distinct focus */
-:focus-visible {
-  outline: 3px solid #00ffd0;
-  outline-offset: 2px;
-}
-
-/* Headings use display/arcade font for style, with strong contrast */
-h1, h2, h3, h4 {
-  font-family: 'Orbitron', 'Segoe UI', 'Arial', sans-serif;
-  color: #00ffd0;
-  letter-spacing: 0.02em;
-  text-shadow: 0 2px 10px #003fff40;
-}
-
-/* Ensure interactive elements are visually clear on focus */
-button, [role="button"], input, select, textarea, a {
-  transition: outline 0.2s;
+  border: 1px solid #00C8FF60;
 }
