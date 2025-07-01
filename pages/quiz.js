@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import quizData from "../quizData";
-import QuizManager from "../QuizManager";
+import quizData from "/quizData";
+import QuizManager from "/QuizManager";
 
 export default function QuizPage() {
   const managerRef = useRef(new QuizManager(quizData));
