@@ -1,4 +1,4 @@
-export const quizData = [
+const quizData = [
   {
     question: "A provider’s privileges were suspended at Hospital A due to a peer review issue. The provider now seeks to practice at Hospital B within the same health system. What should the credentialing department at Hospital B do?",
     options: [
@@ -415,3 +415,4 @@ export const quizData = [
     explanation: "A state licensing agency that performs primary source verification can be an approved source for board certification status under NCQA."
   }
 ];
+export default quizData;
