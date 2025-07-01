@@ -3,21 +3,24 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
-    // Add other folders as needed
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        // High-contrast dark theme background and text
-        "primary-bg": "#18181a",
-        "panel-bg": "#232334",
-        "neon-accent": "#00ffd0",
-        "neon-accent-secondary": "#00ffb2",
-        "yellow-neon": "#FFD700",
-        "blue-neon": "#003fff",
-        "text-main": "#f8fafc",
-        "error": "#ff2060",
-        "success": "#00ff90",
+        primary: "#00FFB2",
+        secondary: "#FF00C8",
+        accent: "#00C8FF",
+        gold: "#FFD700",
+        blueNeon: "#003fff",
+        dark: "#18181a",
+        panel: "#232334",
+        error: "#ff2060",
+        success: "#00ff90",
+        // Optionally, keep these if you use them:
+        // "primary-bg": "#18181a",
+        // "panel-bg": "#232334",
       },
       fontFamily: {
         arcade: ['"Press Start 2P"', "Orbitron", "Segoe UI", "sans-serif"],
@@ -30,6 +33,9 @@ module.exports = {
       },
       borderRadius: {
         "3xl": "1.5rem",
+      },
+      backgroundImage: {
+        'game-grid': "repeating-linear-gradient(45deg, #232334 0 2px, transparent 2px 40px)",
       },
       keyframes: {
         bgMove: {
