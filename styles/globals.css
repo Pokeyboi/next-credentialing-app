@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@700&display=swap');
 
 /* Body styles for high contrast and accessibility */
 body {
@@ -27,7 +27,7 @@ body {
 
 /* Neon Button Style - accessible contrast */
 .btn-neon {
-  @apply font-arcade bg-primary-bg text-text-main px-8 py-4 rounded-md shadow-neon transition transform hover:scale-105;
+  @apply font-arcade bg-primary text-dark px-8 py-4 rounded-md shadow-neon transition-transform hover:scale-105;
   border: 2px solid #00ffd0;
   text-shadow: 0 0 6px #00ffd0, 0 0 12px #003fff;
   animation: pulseGlow 2s infinite alternate;
@@ -51,7 +51,7 @@ body {
 
 /* Panel/Card styling */
 .panel-game {
-  @apply bg-panel-bg rounded-lg shadow-panel p-6;
+  @apply bg-panel rounded-lg shadow-panel p-6;
   border: 2px solid #003fff;
 }
 
