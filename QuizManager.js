@@ -1,4 +1,4 @@
-import { quizData } from "./quizData";
+import quizData from "./quizData"; // Changed to default import
 
 // Fisher-Yates shuffle
 function shuffle(array) {
@@ -30,8 +30,8 @@ function getRandomizedQuestion(originalQuestion) {
   };
 }
 
-export class QuizManager {
-  constructor(data) {
+export default class QuizManager {
+  constructor(data = quizData) { // Provide quizData as default
     this.originalData = data;
     this._resetQuestionOrder();
   }
